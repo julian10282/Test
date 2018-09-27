@@ -11,5 +11,6 @@ public interface CourseService {
 	public CourseEntity addCourse(CourseModel course, String logIndet);
 	public int removeCourse(int id);
 	public CourseEntity updateCourse(CourseModel courseModel, String logIdent);
+	public CourseModel findByID(int id);
 	
 }

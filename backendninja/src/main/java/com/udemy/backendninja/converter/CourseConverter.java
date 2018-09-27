@@ -15,6 +15,7 @@ public class CourseConverter {
 	public CourseModel entityToModel(CourseEntity courseEntity) {
 		LOG.info(new StringBuilder("Changin entity to model: COURSE=[").append(courseEntity.toString()).append("]"));
 		CourseModel courseModel = new CourseModel();
+		courseModel.setId(courseEntity.getId());
 		courseModel.setName(courseEntity.getName());
 		courseModel.setDescription(courseEntity.getDescription());
 		courseModel.setPrice(courseEntity.getPrice());
@@ -26,6 +27,7 @@ public class CourseConverter {
 	public CourseEntity modelToEntity(CourseModel courseModel) {
 		LOG.info(new StringBuilder("Changin model to entity: COURSE=[").append(courseModel.toString()).append("]"));
 		CourseEntity courseEntity = new CourseEntity();
+		courseEntity.setId(courseModel.getId());
 		courseEntity.setName(courseModel.getName());
 		courseEntity.setDescription(courseModel.getDescription());
 		courseEntity.setPrice(courseModel.getPrice());

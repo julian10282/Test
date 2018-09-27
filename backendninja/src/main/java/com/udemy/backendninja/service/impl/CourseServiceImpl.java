@@ -56,7 +56,13 @@ public class CourseServiceImpl implements CourseService{
 		LOG.info(new StringBuilder("Updating course: ").append(logIdent).toString());
 		return courseRepository.save(courseConverter.modelToEntity(courseModel));
 	}
-	
-	
+
+	@Override
+	public CourseModel findByID(int id) {
+		LOG.info(new StringBuilder("finding course by id: ").append(id).toString());
+		CourseModel courseModel = courseConverter.entityToModel(courseRepository.findById(id));
+		LOG.info(new StringBuilder("Course found: ").append(courseModel).toString());
+		return courseModel;
+	}
 
 }
