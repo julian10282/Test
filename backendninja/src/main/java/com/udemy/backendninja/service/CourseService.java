@@ -10,6 +10,6 @@ public interface CourseService {
 	public List<CourseModel> listAllCourses();
 	public CourseEntity addCourse(CourseModel course, String logIndet);
 	public int removeCourse(int id);
-	public CourseEntity updateCourse(CourseEntity course);
+	public CourseEntity updateCourse(CourseModel courseModel, String logIdent);
 	
 }

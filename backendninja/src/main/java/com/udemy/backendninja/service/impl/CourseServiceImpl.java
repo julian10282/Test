@@ -40,9 +40,9 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public CourseEntity addCourse(CourseModel course, String logIdent) {
+	public CourseEntity addCourse(CourseModel courseModel, String logIdent) {
 		LOG.info(new StringBuilder("Saving course: ").append(logIdent).toString());
-		return courseRepository.save(courseConverter.modelToEntity(course));
+		return courseRepository.save(courseConverter.modelToEntity(courseModel));
 	}
 
 	@Override
@@ -52,8 +52,9 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public CourseEntity updateCourse(CourseEntity course) {
-		return courseRepository.save(course);
+	public CourseEntity updateCourse(CourseModel courseModel, String logIdent) {
+		LOG.info(new StringBuilder("Updating course: ").append(logIdent).toString());
+		return courseRepository.save(courseConverter.modelToEntity(courseModel));
 	}
 	
 	

@@ -28,7 +28,7 @@ public class CourseController {
 	
 	@GetMapping("/listcourses")
 	public ModelAndView listAllCourses() {
-		LOG.info("Getting all courses!! ");
+		LOG.info("listAllCourses - Getting all courses!! ");
 		ModelAndView maView = new ModelAndView(COURSES_VIEW);
 		maView.addObject("course", new CourseModel());
 		maView.addObject("courses", courseService.listAllCourses());
@@ -38,10 +38,17 @@ public class CourseController {
 	@PostMapping("/addcourse")
 	public String addCourse(@ModelAttribute("course") CourseModel courseModel) {
 		String logIdent = new StringBuilder("COURSE=[").append(courseModel.toString()).append("]").toString();
-		LOG.info(new StringBuilder("Adding course").append(logIdent).toString());
+		LOG.info(new StringBuilder("addCourse - Adding course").append(logIdent).toString());
 		courseService.addCourse(courseModel, logIdent);
 		return "redirect:/courses/listcourses";
 	}
 	
+	@PostMapping("/updatecourse")
+	public String updateCourse(@ModelAttribute("course") CourseModel courseModel) {
+		String logIdent = new StringBuilder("COURSE=[").append(courseModel.toString()).append("]").toString();
+		LOG.info(new StringBuilder("updateCourse - Updating course").append(logIdent).toString());
+		courseService.updateCourse(courseModel, logIdent);
+		return "redirect:/courses/listcourses";
+	}
 
 }
